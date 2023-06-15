@@ -5,14 +5,13 @@
     "title": "ServiceNow Custom Sample",
     "description": "A sample connector for ServiceNow with basic CRUD for Incidents, OAuth and attachment support"
   },
-  "host": "YourInstance.service-now.com",
+  "host": "https://cherokeenationbusinessestest.service-now.com/",
   "basePath": "/",
   "schemes": [
     "https"
   ],
   "consumes": [],
-  "x-ms-connector-metadata": [
-    {
+  "x-ms-connector-metadata": [{
       "propertyName": "Website",
       "propertyValue": "https://www.servicenow.com/"
     },
@@ -29,7 +28,7 @@
     "application/json"
   ],
   "paths": {
-        "/api/now/v2/table/sys_user/{sys_id}": {
+    "/api/now/v2/table/sys_user/{sys_id}": {
       "get": {
         "responses": {
           "200": {
@@ -141,8 +140,7 @@
         },
         "summary": "Get User",
         "operationId": "GetUser",
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/parameters/ExcludeRefLinks"
           },
           {
@@ -251,18 +249,16 @@
         "summary": "Get Attachment",
         "description": "Returns the metadata of the attachment file provided a specific System ID for the attachment",
         "operationId": "GetAttachment",
-        "parameters": [
-          {
-            "name": "sys_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "System ID of the attachment record for which to retrieve the metadata.",
-            "x-ms-summary": "System ID",
-            "x-ms-visibility": "important",
-            "x-ms-url-encoding": "single"
-          }
-        ]
+        "parameters": [{
+          "name": "sys_id",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "System ID of the attachment record for which to retrieve the metadata.",
+          "x-ms-summary": "System ID",
+          "x-ms-visibility": "important",
+          "x-ms-url-encoding": "single"
+        }]
       },
       "delete": {
         "responses": {
@@ -274,18 +270,16 @@
         "summary": "Delete Attachment",
         "description": "This method deletes the attachment for a provided System ID value",
         "operationId": "DeleteAttachment",
-        "parameters": [
-          {
-            "name": "sys_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "System ID of the attachment record to delete.",
-            "x-ms-summary": "System ID",
-            "x-ms-visibility": "important",
-            "x-ms-url-encoding": "single"
-          }
-        ]
+        "parameters": [{
+          "name": "sys_id",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "System ID of the attachment record to delete.",
+          "x-ms-summary": "System ID",
+          "x-ms-visibility": "important",
+          "x-ms-url-encoding": "single"
+        }]
       }
     },
     "/api/now/v1/attachment": {
@@ -384,8 +378,7 @@
         "summary": "List Attachments",
         "description": "Returns the metadata for multiple attachments.",
         "operationId": "ListAttachments",
-        "parameters": [
-          {
+        "parameters": [{
             "name": "sysparm_limit",
             "in": "query",
             "required": false,
@@ -412,24 +405,26 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": {"type":"string" , "format": "binary", "title": "File Content"}
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "title": "File Content"
+            }
           }
         },
         "summary": "Get Attachment File",
         "description": "Returns the binary file attachment for the specified System ID record of attachment",
         "operationId": "GetAttachmentFile",
-        "parameters": [
-          {
-            "name": "sys_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "System ID of the attachment record from which to return binary data.",
-            "x-ms-summary": "System ID",
-            "x-ms-visibility": "important",
-            "x-ms-url-encoding": "single"
-          }
-        ],
+        "parameters": [{
+          "name": "sys_id",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "System ID of the attachment record from which to return binary data.",
+          "x-ms-summary": "System ID",
+          "x-ms-visibility": "important",
+          "x-ms-url-encoding": "single"
+        }],
         "x-ms-visibility": "important"
       }
     },
@@ -529,8 +524,7 @@
         "summary": "Upload Attachment",
         "description": "Uploads a specified binary file as an attachment to a specified record.  The file to attach must be specified after the last parameter in the passed-in request parameter list.",
         "operationId": "UploadAttachment",
-        "parameters": [
-          {
+        "parameters": [{
             "name": "table_name",
             "in": "query",
             "required": true,
@@ -612,8 +606,7 @@
         "summary": "List Incidents",
         "description": "Retrieves a list of incidents from ServiceNow",
         "operationId": "ListIncidents",
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/parameters/ExcludeRefLinks"
           },
           {
@@ -1388,8 +1381,7 @@
         "summary": "Create Incident",
         "description": "Create a new ServiceNow Incident",
         "operationId": "CreateIncident",
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/parameters/DisplaySystemRefs"
           },
           {
@@ -2226,8 +2218,7 @@
         "summary": "Get Incident",
         "description": "Retrieves the specific incident record using the provided Id parameter.",
         "operationId": "GetIncident",
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/parameters/ExcludeRefLinks"
           },
           {
@@ -2252,17 +2243,15 @@
         "summary": "Delete Incident",
         "description": "Deletes the specified incident record.",
         "operationId": "DeleteIncident",
-        "parameters": [
-          {
-            "name": "sys_id",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "x-ms-summary": "System ID",
-            "description": "ID of the incident record to be deleted",
-            "x-ms-url-encoding": "single"
-          }
-        ],
+        "parameters": [{
+          "name": "sys_id",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "x-ms-summary": "System ID",
+          "description": "ID of the incident record to be deleted",
+          "x-ms-url-encoding": "single"
+        }],
         "x-ms-visibility": "important"
       },
       "put": {
@@ -2637,8 +2626,7 @@
         "summary": "Update Incident",
         "description": "Updates a specified incident record",
         "operationId": "UpdateIncident",
-        "parameters": [
-          {
+        "parameters": [{
             "$ref": "#/parameters/SysIdParameter"
           },
           {
@@ -3239,15 +3227,13 @@
     "oauth2_auth": {
       "type": "oauth2",
       "flow": "accessCode",
-      "authorizationUrl": "https://YourInstance.service-now.com/oauth_auth.do",
-      "tokenUrl": "https://YourInstance.service-now.com/oauth_token.do",
+      "authorizationUrl": "https://cherokeenationbusinessestest.service-now.com//oauth_auth.do",
+      "tokenUrl": "https://cherokeenationbusinessestest.service-now.com/oauth_token.do",
       "scopes": {}
     }
   },
-  "security": [
-    {
-      "oauth2_auth": []
-    }
-  ],
+  "security": [{
+    "oauth2_auth": []
+  }],
   "tags": []
 }
